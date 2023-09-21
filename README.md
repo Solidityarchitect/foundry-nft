@@ -1,66 +1,70 @@
-## Foundry
+# 🏗 scaffold-eth | 🏰 BuidlGuidl
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+![Alt text](image.png)
 
-Foundry consists of:
+## 🎁 SVG NFT 🎫 Building Cohort Challenge
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+🧙 Tinker around with cutting edge smart contracts that render SVGs in Solidity. 🧫 We quickly discovered that the render function needs to be public... 🤔 This allows NFTs that own other NFTs to render their stash. Just wait until you see an Optimistic Loogie and a Fancy Loogie swimming around in the same Loogie Tank!
 
-## Documentation
+![Alt text](image-1.png)
+![Alt text](image-2.png)
 
-https://book.getfoundry.sh/
+(SVG NFT)MoodNft Contract CODE: https://sepolia.etherscan.io/address/0x66c8ef34ec9b041dd5b9cb7ccbaabdc8dfe6db12#code
 
-## Usage
+BasicNft Contract CODE: https://sepolia.etherscan.io/address/0x8FbaC7F7B4FdaE4c850DD6050179F150A134eaB3#code
 
-### Build
+## Quickstart
 
-```shell
-$ forge build
+```
+git clone https://github.com/Solidityarchitect/foundry-nft
+cd foundry-nft
+forge install
+forge build
 ```
 
-### Test
+# Usage
 
-```shell
-$ forge test
+## Start a local node
+
+```
+make anvil
 ```
 
-### Format
+## Deploy
 
-```shell
-$ forge fmt
+This will default to your local node. You need to have it running in another terminal in order for it to deploy.
+
+```
+make deploy
 ```
 
-### Gas Snapshots
+## Deploy - Other Network
 
-```shell
-$ forge snapshot
+[See below](#deployment-to-a-testnet-or-mainnet)
+
+## Testing
+
+We talk about 4 test tiers in the video.
+
+1. Unit
+2. Integration
+3. Forked
+4. Staging
+
+This repo we cover #1 and #3.
+
+```
+forge test
 ```
 
-### Anvil
+or
 
-```shell
-$ anvil
+```
+forge test --fork-url $SEPOLIA_RPC_URL
 ```
 
-### Deploy
+### Test Coverage
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
 ```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+forge coverage
 ```
